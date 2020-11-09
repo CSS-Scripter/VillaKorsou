@@ -12,27 +12,32 @@
 
     <base href="./">
 
-    <link rel="shortcut icon" href="assets/logo_placeholder.png" type="image/png">
+    <link rel="shortcut icon" href="assets/logo-bg.png" type="image/png">
     <link rel="stylesheet" href="styling/style.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.css' rel='stylesheet' />
+
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap" rel="stylesheet">
+
 
     <script src="javascript/main.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="assets/logo.png" alt="Villa Korsou Logo">
+            <img src="assets/logo-bg.png" alt="Villa Korsou Logo">
         </div>
-        <nav>
-            <button>Home</button>
-            <button>De Villa</button>
-            <button>Impressie Villa Korsou</button>
-            <button>Video Villa Korsou</button>
-            <button>Prijzen en Beschikbaarheid</button>
-            <button>Contact</button>
-            <button>Email</button>
+        <nav id="navigation">
+            <button onclick="scrollToElement('banner')" id="banner-button">Home</button>
+            <button onclick="scrollToElement('villa')" id="villa-button">De Villa</button>
+            <button onclick="scrollToElement('gallery')" id="gallery-button">Impressie Villa Korsou</button>
+            <button onclick="scrollToElement('video')" id="video-button">Video Villa Korsou</button>
+            <button onclick="scrollToElement('reviews')" id="reviews-button">Reviews</button>
+            <button onclick="scrollToElement('availability')" id="availability-button">Prijzen en Beschikbaarheid</button>
+            <button onclick="scrollToElement('contact')" id="contact-button">Contact</button>
         </nav>
     </header>
     <main>
@@ -85,9 +90,100 @@
             </div>
         </section>
         <section id="gallery">
+            <h1>Gallerij Villa Korsou</h1>
             <div class="gallery-container">
-                
+                <div><img src="/assets/images/interior.jpg" alt="Interieur"></div>
+                <div><img src="/assets/images/hammok.jpg" alt="Terras Hangmat"></div>
+                <div><img src="/assets/images/exterior.jpg" alt="Exterieur"></div>
+                <div><img src="/assets/images/overview.jpg" alt="Drone schot"></div>
+                <div><img src="/assets/images/terras.jpg" alt="Terras"></div>                
+                <div><img src="/assets/images/public-beach.jpg" alt="Openbaar strand"></div>
+                <div><img src="/assets/images/private-beach.jpg" alt="Prive Strand"></div>
             </div>
+        </section>
+        <section id="video">
+            <h1>Video Villa Korsou</h1>
+            <div class="centered">
+                <iframe width="941" height="609" src="https://www.youtube.com/embed/oW_duZOJK3U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        <section id="reviews">
+            <h1>Reviews</h1>
+            <div class="reviews-container">
+                <div class="review">
+                    <div class="profile-picture">
+                        <img src="/assets/images/della.webp" alt="Della">
+                    </div>
+                    <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+                    <p>
+                        Super uitzicht en op loopafstand van klein pittoresk bijna privéstrandje. Wíl je tot rust komen en elke dag een verschillende prachtige zonsondergang zien op t terras dat maar liefst 75m2 beslaat, dan is dit "the place to be"! In z'n klasse betaalbare luxe. Ook niet onbelangrijk.
+                        <span class="bold">Della Goossens, Nederland</span>
+                    </p>
+                </div>
+                <div class="review">
+                    <div class="profile-picture">
+                        <img src="/assets/images/cees.webp" alt="Cees">
+                    </div>
+                    <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+                    <p>
+                        Deze villa bied ruimte aan 8 personen met 4 slaapkamers en 4 badkamers. De Living is zeer royaal en ik was onder de indruk van de hele grote veranda. Meerdere zitjes zowel binnen als buiten bieden een gezellige sfeer. De villa ziet er gewoon heel netjes uit en bied veel comfort.
+                        <span class="bold">Cees, Nederland</span>
+                    </p>
+                </div>
+                <div class="review">
+                    <div class="profile-picture">
+                        <img src="/assets/images/default.jpg" alt="Bea">
+                    </div>
+                    <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+                    <p>
+                        Een fantastische villa met een grandioos uitzicht over zee aan de prachtige westkust van Curaçao."Als u op zoek bent naar een kwaliteitsbedrijf, kan ik dit bedrijf volmondig aanbevelen. Dit bedrijf is het beste in de branche, zonder twijfel."
+                        <span class="bold">Bea van Bemmel, Nederland</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="availability">
+            <h1>Prijzen en Beschikbaarheid</h1>
+            <p>Prijzen voor Villa Korsou beginnen  vanaf €200,- per nacht.
+                De uiteindelijke prijs is afhankelijk van het aantal personen, verblijfsduur en periode van het jaar.
+                Indien u ons deze gegevens wilt doen toekomen ontvangt u snel een vrijblijvende prijsopgave; zie hiervoor a.u.b. het contactformulier onderaan deze website.
+                De prijs is inclusief wifi, gas, 5 kWh per personen per nacht en 2 m³ water per week.
+            </p>
+            <div id="calendar"></div>
+        </section>
+        <section id="contact">
+            <h1>Neem Contact met ons op</h1>
+            <p>Vraag uw reservering aan of stuur een bericht</p>
+            <form>
+                <label for="name">Voor en achternaam</label>
+                <input type="text" name="name" id="name">
+                <label for="email">E-mailadres</label>
+                <input type="text" name="email" id="email">
+                <label for="message">Bericht</label>
+                <textarea name="message" id="message" rows="6"></textarea>
+            </form>
+            <button class="g-recaptcha" 
+                data-sitekey="6Ldq3uAZAAAAAPAs6M9PP7uQRT59_25QIKIka59W" 
+                data-callback='onSubmit' 
+                data-action='submit'>Submit</button>
         </section>
     </main>
     <footer>

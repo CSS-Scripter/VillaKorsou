@@ -3,12 +3,39 @@
     --secondary-color: #404143;
 }
 
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #FFF; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 16px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 html, body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
     font-family: "Comfortaa", sans-serif;
+}
+
+h1 {
+    color: var(--main-color);
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* 
@@ -21,6 +48,11 @@ html, body {
 header {
     display: flex;
     flex-direction: row;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #FFF;
+    z-index: 200;
 }
 
 header .logo {
@@ -51,6 +83,7 @@ header nav button {
 
     padding: 0 2em;
     min-width: 100px;
+    max-width: 285px;
     margin: 10px 0;
 
     font-family: "Comfortaa", sans-serif;
@@ -61,6 +94,7 @@ header nav button {
 
 header nav button.current {
     color: var(--main-color);
+    font-weight: bold;
 }
 
 header nav button:hover {
@@ -203,5 +237,209 @@ section#villa .visual-container .visual {
 /* 
     GALLERY (section#gallery)
 
-    
+    It's just a grid
+
 */
+
+section#gallery {
+    padding: 5em 0;
+}
+
+section#gallery .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(7, 100px);
+    grid-column-gap: 5em;
+    grid-row-gap: 5em;
+    width: 1500px;
+    margin: 0 auto;
+}
+
+section#gallery .gallery-container div {
+    width: 100%;
+    height: 100%;
+    box-shadow: 
+        -4px 4px 4px rgba(0, 0, 0, .1),
+        4px 4px 4px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+
+section#gallery .gallery-container div:hover {
+    transform: scale(1.05);
+    transition-duration: 200ms;
+}
+
+section#gallery .gallery-container div:nth-child(1) { grid-area: 1 / 1 / span 3 / span 1; }
+section#gallery .gallery-container div:nth-child(2) { grid-area: 4 / 1 / span 4 / span 1; }
+section#gallery .gallery-container div:nth-child(3) { grid-area: 1 / 2 / span 2 / span 1; }
+section#gallery .gallery-container div:nth-child(4) { grid-area: 3 / 2 / span 3 / span 1; }
+section#gallery .gallery-container div:nth-child(5) { grid-area: 6 / 2 / span 2 / span 1; }
+section#gallery .gallery-container div:nth-child(6) { grid-area: 1 / 3 / span 4 / span 1; }
+section#gallery .gallery-container div:nth-child(7) { grid-area: 5 / 3 / span 3 / span 1; }
+
+section#gallery .gallery-container div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 
+    VIDEO (section#video)
+
+    section#video -> video
+*/
+
+section#video {
+    padding: 5em;
+}
+
+section#video .centered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 
+    REVIEWS (section#reviews)
+
+    .review:
+    - Image (div -> img)
+    - Rating (div -> ion-icon[])
+    - Open Quotes (ion-icon)
+    - Message (p)
+    - Name (span)
+
+    h1
+    .reviews-container -> .review[]
+*/
+
+section#reviews {
+    padding-top: 5em;
+}
+
+section#reviews .reviews-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.review {
+    width: 250px;
+    margin: 50px
+}
+
+.review .profile-picture {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.review .profile-picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.review .rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.review .rating ion-icon{
+    width: 25px;
+    height: 25px;
+    color: var(--main-color);
+}
+
+.review p {
+    text-align: center;
+    margin: 0;
+    font-weight: lighter;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.review p .bold {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    margin-top: 10px;
+}
+
+/* 
+    PRICES AND AVAILABILITY (section#availability)
+
+    h1
+    p
+    calendar
+*/
+
+section#availability {
+    padding-top: 5em;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+section#availability p {
+    text-align: center;
+    line-height: 24px;
+}
+
+/* 
+    CONTACT US (section#contact)
+
+    h1
+    p
+    form -> field[]
+    button
+
+*/
+
+section#contact {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5em;
+}
+
+section#contact p {
+    font-size: 24px;
+    color: var(--secondary-color);
+}
+
+section#contact form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1em;
+}
+section#contact form label {
+    font-size: 18px;
+}
+
+section#contact form input, section#contact form textarea {
+    font-size: 16px;
+    padding: .8em;
+    width: 80%;
+    min-width: 320px;
+    margin: .5em auto 2em auto;
+}
+
+section#contact button {
+    font-size: 24px;
+    color: var(--secondary-color);
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1em 2em;
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+
+section#contact button:hover {
+    background: rgba(0, 0, 0, .1);
+}
