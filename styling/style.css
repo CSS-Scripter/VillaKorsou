@@ -1,0 +1,207 @@
+:root {
+    --main-color: #5BB630;
+    --secondary-color: #404143;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Comfortaa", sans-serif;
+}
+
+/* 
+    HEADER
+
+    div.logo -> img
+    nav -> button[]
+*/
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+header .logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 25px;
+}
+
+header .logo img {
+    width: 100%;
+    height: 100%;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 10px
+}
+
+header nav button {
+    background: none;
+    
+    outline: none;
+    border: none;
+    border-left: 1px solid #EEE;
+
+    padding: 0 2em;
+    min-width: 100px;
+    margin: 10px 0;
+
+    font-family: "Comfortaa", sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    color: var(--secondary-color);
+}
+
+header nav button.current {
+    color: var(--main-color);
+}
+
+header nav button:hover {
+    background-color: #DDD;
+}
+
+/* 
+    BANNER (section#banner)
+
+    video
+    div.centered-overlay -> h1
+*/
+
+section#banner {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    max-height: 80vh;
+}
+
+section#banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 9;
+}
+
+section#banner .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(20, 0, 0, .5);
+}
+
+section#banner .overlay h1 {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 48px;
+}
+
+/* 
+    VILLA (section#villa)
+
+    spec element:
+      | A | B   |
+      |    C    |
+
+      A = Icon
+      B = Title
+      C = Description
+
+    spec-container -> 2x spec element
+    
+    visual-container -> text | image
+
+    spec-container -> 2x spec element
+    
+    visual-container -> image | text
+*/
+
+section#villa .spec-container{
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8em;
+}
+
+.spec-element {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    width: 400px;
+}
+
+.spec-element ion-icon {
+    grid-area: 1 / 1 / span 1 / span 1;
+    width: auto;
+    height: auto;
+    padding: .3em;
+    color: var(--secondary-color);
+}
+
+.spec-element h2 {
+    grid-area: 1 / 2 / span 1 / span 2;
+    margin: 0;
+    font-size: 24px;
+    color: var(--main-color);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.spec-element p {
+    grid-area: 2 / 1 / span 1 / span 3;
+    margin: 0;
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+section#villa .visual-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+section#villa .visual-container p {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    width: 600px;
+    margin: 0 auto;
+    line-height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#villa .visual-container .visual {
+    width: 100%;
+    height: 100%;
+    box-shadow: 
+        -4px 4px 4px rgba(0, 0, 0, .1),
+        4px 4px 4px rgba(0, 0, 0, .1);
+}
+
+.visual img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 
+    GALLERY (section#gallery)
+
+    
+*/
