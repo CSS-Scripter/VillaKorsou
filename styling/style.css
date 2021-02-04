@@ -38,6 +38,13 @@ h1 {
     text-align: center;
 }
 
+@media (max-width: 800px) {
+    h1 {
+        font-size: 24px;
+    }
+}
+
+
 /* 
     HEADER
 
@@ -101,6 +108,37 @@ header nav button:hover {
     background-color: #DDD;
 }
 
+@media (max-width: 1500px) {
+    header nav button {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    header nav button {
+        min-width: 50px;
+        max-width: 150px;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 880px) {
+    header nav button {
+        min-width: 50px;
+        max-width: 125px;
+        font-size: 12px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 750px) {
+    header {
+        display: none;
+    }
+}
+
 /* 
     BANNER (section#banner)
 
@@ -138,6 +176,23 @@ section#banner .overlay h1 {
     color: var(--main-color);
     font-weight: bold;
     font-size: 48px;
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    section#banner {
+        height: 700px;
+    }
+}
+
+@media (max-width: 600px) {
+    section#banner {
+        height: 500px;
+    }
+
+    section#banner .overlay h1 {
+        font-size: 32px;
+    }
 }
 
 /* 
@@ -166,7 +221,7 @@ section#villa .spec-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 8em;
+    padding: 8em 0;
 }
 
 .spec-element {
@@ -234,6 +289,67 @@ section#villa .visual-container .visual {
     height: 100%;
 }
 
+@media (max-width: 1400px) {
+    section#villa .visual-container p {
+        width: min(100%, 400px);
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1000px) {
+    section#villa .spec-container{
+        width: max(80vw, 320px);
+    }
+
+    .spec-element {
+        width: 300px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+
+    .spec-element h2 {
+        font-size: 18px;
+    }
+
+    .spec-element p {
+        font-size: 16px;
+    }
+    
+    section#villa .visual-container {
+        grid-template-columns: 1fr;
+    }
+
+    section#villa .visual-container p {
+        grid-area: 2 / 1 / span 1 / span 1;
+        padding-top: 20px;
+    }
+
+    section#villa .visual-container .visual {
+        grid-area: 1 / 1 / span 1 / span 1;
+        width: min(600px, 100%);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    section#villa .spec-container {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    section#villa .spec-container .spec-element {
+        margin: 0 auto;
+        padding-top: 2em;
+    }
+}
+
+@media (max-width: 450px) {
+    section#villa .visual-container p, section#villa .spec-container p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
 /* 
     GALLERY (section#gallery)
 
@@ -284,6 +400,44 @@ section#gallery .gallery-container div img {
     object-fit: cover;
 }
 
+@media (max-width: 1500px) {
+    section#gallery .gallery-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(12, 100px);
+        grid-column-gap: 2em;
+        grid-row-gap: 2em;
+        width: 1000px;
+    }
+
+    section#gallery .gallery-container div:nth-child(1) { grid-area: 1 / 1 / span 3 / span 1; }
+    section#gallery .gallery-container div:nth-child(2) { grid-area: 4 / 1 / span 4 / span 1; }
+    section#gallery .gallery-container div:nth-child(3) { grid-area: 1 / 2 / span 2 / span 1; }
+    section#gallery .gallery-container div:nth-child(4) { grid-area: 3 / 2 / span 3 / span 1; }
+    section#gallery .gallery-container div:nth-child(5) { grid-area: 8 / 1 / span 2 / span 1; }
+    section#gallery .gallery-container div:nth-child(6) { grid-area: 6 / 2 / span 5 / span 1; }
+    section#gallery .gallery-container div:nth-child(7) { grid-area: 10 / 1 / span 3 / span 1; }
+}
+
+@media (max-width: 1000px) {
+    section#gallery .gallery-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(20, 100px);
+        grid-column-gap: 2em;
+        grid-row-gap: 2em;
+        width: min(100%, 600px);
+    } 
+
+    section#gallery .gallery-container div:nth-child(1) { grid-area: 1 / 1 / span 3 / span 1; }
+    section#gallery .gallery-container div:nth-child(2) { grid-area: 4 / 1 / span 4 / span 1; }
+    section#gallery .gallery-container div:nth-child(3) { grid-area: 8 / 1 / span 2 / span 1; }
+    section#gallery .gallery-container div:nth-child(4) { grid-area: 10 / 1 / span 3 / span 1; }
+    section#gallery .gallery-container div:nth-child(5) { grid-area: 13 / 1 / span 2 / span 1; }
+    section#gallery .gallery-container div:nth-child(6) { grid-area: 15 / 1 / span 5 / span 1; }
+    section#gallery .gallery-container div:nth-child(7) { grid-area: 20 / 1 / span 3 / span 1; }
+}
+
 /* 
     VIDEO (section#video)
 
@@ -298,6 +452,31 @@ section#video .centered {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
+}
+
+section#video .video-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+section#video .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 600px) {
+    section#video {
+        padding: 5em 0;
+    }
 }
 
 /* 
@@ -319,14 +498,14 @@ section#reviews {
 }
 
 section#reviews .reviews-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
 }
 
 .review {
     width: 250px;
-    margin: 50px
+    margin: 50px auto;
 }
 
 .review .profile-picture {
@@ -369,6 +548,19 @@ section#reviews .reviews-container {
     margin-top: 10px;
 }
 
+@media (max-width: 800px) {
+    section#reviews .reviews-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    section#reviews .reviews-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
 /* 
     PRICES AND AVAILABILITY (section#availability)
 
@@ -379,13 +571,18 @@ section#reviews .reviews-container {
 
 section#availability {
     padding-top: 5em;
-    width: 1000px;
+    width: min(90%, 1000px);
     margin: 0 auto;
 }
 
 section#availability p {
     text-align: center;
     line-height: 24px;
+}
+
+section#availability #calendar {
+    width: min(80%, 1000px);
+    margin: 0 auto;
 }
 
 /* 
@@ -399,10 +596,10 @@ section#availability p {
 */
 
 section#contact {
-    width: 800px;
+    width: min(90%, 800px);
     margin: 0 auto;
     text-align: center;
-    padding: 5em;
+    padding: 5em 0;
 }
 
 section#contact p {
@@ -423,8 +620,7 @@ section#contact form label {
 section#contact form input, section#contact form textarea {
     font-size: 16px;
     padding: .8em;
-    width: 80%;
-    min-width: 320px;
+    width: max(80%, 32px);
     margin: .5em auto 2em auto;
 }
 
@@ -442,4 +638,22 @@ section#contact button {
 
 section#contact button:hover {
     background: rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 800px) {
+    section#contact p {
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    section#contact form input, section#contact form textarea {
+        padding: .2em;
+        margin: .1em auto 1em auto;
+    }
+
+    section#contact button {
+        font-size: 18px;
+    }
 }
